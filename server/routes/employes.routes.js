@@ -1,16 +1,16 @@
 import { Router } from "express";
-import { deleteEmployees, getEmployees, postEmployees, updateEmployees, getEmployee } 
+import { deletePublicacion, getPublicaciones, postPublicacion, updatePublicacion, getPublicacion } 
 from "../controllers/employeess.controllers.js";
 const router = Router();
 
-router.get('/employees',getEmployees);
+router.get('/employees',getPublicaciones);
 
-router.get('/employees/:id', getEmployee);
+router.get('/employees/:id', getPublicacion);
 
-router.post('/employees', postEmployees);
+router.post('/employees', postPublicacion);
 
-router.patch('/employees/:id', updateEmployees);
+router.patch('/employees/:id', updatePublicacion);
 
-router.delete('/employees/:id', deleteEmployees);
+router.delete('/employees/:id', deletePublicacion);
 
 export default router;
