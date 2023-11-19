@@ -3,14 +3,14 @@ import { deletePublicacion, getPublicaciones, postPublicacion, updatePublicacion
 from "../controllers/employeess.controllers.js";
 const router = Router();
 
-router.get('/employees',getPublicaciones);
+router.get('/publicacion',getPublicaciones);
 
-router.get('/employees/:id', getPublicacion);
+router.get('/publicacion/:id', getPublicacion);
 
-router.post('/employees', postPublicacion);
+router.post('/publicacion', postPublicacion);
 
-router.patch('/employees/:id', updatePublicacion);
+router.patch('/publicacion/:id', updatePublicacion);
 
-router.delete('/employees/:id', deletePublicacion);
+router.delete('/publicacion/:id', deletePublicacion);
 
 export default router;
