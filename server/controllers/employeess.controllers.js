@@ -2,7 +2,7 @@ import connection from "../db.js";
 
 export const getPublicaciones = async(req,res) => {
     try {
-        const [rows] =  await connection.query('SELECT * FROM data1')
+        const [rows] =  await connection.query('SELECT * FROM contenido')
         res.json(rows);
     } catch (error) {
         return res.status(500).json({
@@ -13,11 +13,11 @@ export const getPublicaciones = async(req,res) => {
 
 export const getPublicacion = async(req,res) => {
     try {
-    const [rows] = await connection.query('SELECT * FROM data1 WHERE id = ?',[req.params.id])
+    const [rows] = await connection.query('SELECT * FROM contenido WHERE content_id = ?',[req.params.content_id])
     console.log(rows)
 
     if(rows.length <= 0) return res.status(404).json({
-        message:"Employee not found"
+        message:"Publicacion no encontrada"
     })
     res.send(rows[0])
 
@@ -30,14 +30,13 @@ export const getPublicacion = async(req,res) => {
 
 export const postPublicacion = async (req,res) => {
     try {
-        const {nombre, lastname,phone,birth} = req.body;
-    const [rows] = await connection.query('INSERT INTO data1 (nombre,lastname,phone,birth) VALUES (?,?,?,?)',[nombre,lastname,phone,birth])
+        const {content_author, content_parrafo,content_date} = req.body;
+    const [rows] = await connection.query('INSERT INTO contenido (content_author,content_parrafo,content_date) VALUES (?,?,?)',[content_author,content_parrafo,content_date])
     res.send({
-        id: rows.insertId,
-        nombre,
-        lastname,
-        phone,
-        birth
+        content_id: rows.insertId,
+        content_author,
+        content_parrafo,
+        content_date
     });
     } catch (error) {
         return res.status(500).json({
