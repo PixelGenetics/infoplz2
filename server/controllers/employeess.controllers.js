@@ -2,8 +2,28 @@ import connection from "../db.js";
 
 export const getPublicaciones = async(req,res) => {
     try {
-        const [rows] =  await connection.query('SELECT * FROM contenido')
-        res.json(rows);
+
+        const { page, limit} = req.query;
+        // const auxiliar = parseInt(req.query.limit);
+        const offset = (page - 1 ) * limit;
+        const [rows] =  await connection.query('SELECT * FROM contenido LIMIT ? OFFSET ?',[+limit,+offset]);
+        console.log(rows)
+
+        const [TotalPageData] = await connection.query('SELECT COUNT(*) AS COUNT FROM contenido')
+        console.log("TotalPageData: ",TotalPageData)
+
+        const totalPage = Math.ceil(+TotalPageData[0]?.COUNT / limit);
+        console.log("TotalPage: ",totalPage)
+
+        res.json({
+            rows:rows,
+            pagination:{
+                page: +page,
+                limit: +limit,
+                totalPage
+            }
+        }
+        );
     } catch (error) {
         return res.status(500).json({
             message:"Something went wrong"
