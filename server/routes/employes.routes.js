@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { deletePublicacion, getPublicaciones, postPublicacion, updatePublicacion, getPublicacion } 
-from "../controllers/employeess.controllers.js";
+from "../controllers/publicar.controllers.js";
 const router = Router();
 
 router.get('/publicacion',getPublicaciones);
