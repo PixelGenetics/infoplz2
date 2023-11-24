@@ -1,14 +1,21 @@
 import './App.css'
-import Header from './components/header';
-import Body from './components/Content/Body';
+import { Routes,Route } from 'react-router-dom';
+import Home from './components/Home/Home.jsx';
+import UploadContent from './components/UploadContent/UploadContent.jsx';
 function App() {
 
   return (
 
     <>
     <div className='h-[100vh] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>
-      <Header />
-      <Body />
+
+      <h1>
+        <Routes>
+          <Route path='/' element={<Home/>}></Route>
+          <Route path='/upload' element={<UploadContent />}></Route>
+        </Routes>
+      </h1>
+
     </div>
     </>
   )
