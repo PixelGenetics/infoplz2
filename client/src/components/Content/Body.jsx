@@ -5,9 +5,9 @@ const Body = () =>{
     const [inicio,setInicio] = useState([])
 
     useEffect(()=>{
-        axios.get('http://localhost:3000/api/publicacion').then(resp => {
-            setInicio(resp.data)
-            console.log(resp.data)
+        axios.get('http://localhost:3000/api/publicacion?page=1&limit=3').then(resp => {
+            setInicio(resp.data.rows)
+            console.log(resp.data.rows)
         })
     },[])
 
