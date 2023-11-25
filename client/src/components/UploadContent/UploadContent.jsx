@@ -1,4 +1,3 @@
-console.log("adasdas",elementoExtraido, colores)
 const UploadContent = () =>{
     return(
         <>
