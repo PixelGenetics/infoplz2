@@ -1,21 +1,27 @@
 import multer from "multer";
+const upload = (req, res) => {
+    const storage = multer.diskStorage({
+        destination: function(req,file,cb){
+            cb(null,'uploads')
+        },
+        filename:function(req,file,cb){
+            cb(null,file.fieldname + '-' + Date.now() + '.jpg')
+        }
+    })
 
-const storage = multer.diskStorage({
-    destination: function(req,file,cb){
-        cb(null,'uploads')
-    },
-    filename:function(req,file,cb){
-        cb(null,file.fieldname + '-' + Date.now() + '.jpg')
-    }
-})
+   // storage()
 
-let upload = multer({storage: storage})
+    let upload_file = multer({storage: storage})
 
-upload = upload.single('myFile');
+    upload_file = upload_file.single('myFile');
 
-export {upload}
+
+    res.status(200).json({message: "message okey"})
 
 // exports.uploadFile = (req,res) =>{
     
 // }
         
+}
+
+export {upload}
