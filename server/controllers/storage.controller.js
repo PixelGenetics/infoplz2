@@ -1,27 +1,19 @@
-import multer from "multer";
-const upload = (req, res) => {
-    const storage = multer.diskStorage({
-        destination: function(req,file,cb){
-            cb(null,'uploads')
-        },
-        filename:function(req,file,cb){
-            cb(null,file.fieldname + '-' + Date.now() + '.jpg')
-        }
+import fs from 'fs';
+import connection from "../db.js";
+import sharp from "sharp";
+
+    export function guardarImagen(req,res) {
+    const nombre = req.file.originalname;
+    const datosImagen = req.file.buffer;
+
+    const sql = 'INSERT INTO contenido_photo (nombre,datosImagen) VALUES (?,?)';
+    connection.query(sql, [nombre,datosImagen], (err,result) => {
+        if (err) throw err;
+        console.log('Imagen almacenada en la bd');
+    });
+    res.status(200).json({
+        message:"Imagen agregada a bd"
     })
-
-   // storage()
-
-    let upload_file = multer({storage: storage})
-
-    upload_file = upload_file.single('myFile');
-
-
-    res.status(200).json({message: "message okey"})
-
-// exports.uploadFile = (req,res) =>{
-    
-// }
-        
 }
 
-export {upload}
+export default {guardarImagen}
