@@ -11,10 +11,33 @@ const Body = () =>{
         })
     },[])
 
+    const [imagenSrc,setImagenSrc] = useState(null)
+
+    useEffect(() => {
+        const obtenerImagen = async () => {
+          try {
+            const response = await axios.get(`http://localhost:3000/api/upload/1`, {
+              responseType: 'arraybuffer', // Indica que esperamos datos binarios en la respuesta
+            });
+    
+            const blob = new Blob([response.data], { type: 'image/jpeg' });
+            const imageUrl = URL.createObjectURL(blob);
+            setImagenSrc(imageUrl);
+          } catch (error) {
+            console.error('Error al obtener la imagen:', error);
+          }
+        };
+    
+        obtenerImagen();
+      }, []);
+    
+
     return(
         <>
         <div className="border-2 border-red-400 flex pl-[400px] pr-[400px]">
 
+
+        {imagenSrc && <img src={imagenSrc} alt="Imagen" />}  
         {
             inicio.map(item => (
             
