@@ -53,14 +53,15 @@ export const getPublicacion = async(req,res) => {
 
 export const postPublicacion = async (req,res) => {
     try {
-        const {content_author,content_summary, content_parrafo,content_date} = req.body;
-    const [rows] = await connection.query('INSERT INTO contenido (content_author,content_summary, content_parrafo,content_date) VALUES (?,?,?,?)',[content_author,content_summary,content_parrafo,content_date])
+        const {content_author,content_summary, content_parrafo,content_date,content_image} = req.body;
+    const [rows] = await connection.query('INSERT INTO contenido (content_author,content_summary, content_parrafo,content_date, content_image) VALUES (?,?,?,?,?)',[content_author,content_summary,content_parrafo,content_date,content_image])
     res.send({
         content_id: rows.insertId,
         content_author,
         content_summary,
         content_parrafo,
-        content_date
+        content_date,
+        content_image
     });
     } catch (error) {
         return res.status(500).json({
