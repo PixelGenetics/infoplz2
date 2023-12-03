@@ -1,6 +1,5 @@
 import { useEffect,useState } from "react"
 import axios from "axios"
-import MostrarImagen from "../MostrarImagen/MostrarImagen"
 const Body = () =>{
 
     const [inicio,setInicio] = useState([])
@@ -22,7 +21,6 @@ const Body = () =>{
             inicio.map(item => (
             
                 <div key={item.content_id} className="border-2 border-blue-400 gap h-[20%]">
-                    {/* <MostrarImagen /> */}
                     <p className="mb-4">Author: {item.content_author}</p>
                     <p>{item.content_summary}</p>
                     <img src={item.content_image} alt="" />
@@ -36,5 +34,3 @@ const Body = () =>{
 }
 
 export default Body
-
-//flex flex-col items-center ml-[500px] mr-[500px] gap-4
