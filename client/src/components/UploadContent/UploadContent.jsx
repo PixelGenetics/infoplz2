@@ -32,9 +32,9 @@ import {useForm} from 'react-hook-form'
                         <label htmlFor="">Autor</label>
                         <input type="text" defaultValue="" {...register("content_author")} className="rounded-md "/>
                         <label htmlFor="">Resumen</label>
-                        <input type="text" defaultValue="" {...register("content_summary")} className="rounded-md  h-20"/>
+                        <textarea name="" id="" cols="30" rows="5" {...register("content_summary")}></textarea>
                         <label htmlFor="">Informacion</label>
-                        <input type="text" defaultValue="" {...register("content_parrafo")} className="rounded-md h-52"/>
+                        <textarea name="" id="" cols="30" rows="10" {...register("content_parrafo")}></textarea>
                         <label htmlFor="">Fecha</label>
                         <input type="text" defaultValue="" {...register("content_date")} className="rounded-md"/>
                         <label htmlFor="">Link de imagen</label>
