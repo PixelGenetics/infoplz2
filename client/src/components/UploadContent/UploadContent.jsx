@@ -1,33 +1,33 @@
 import axios from "axios"
 import { useEffect,useState } from "react"
 import {useForm} from 'react-hook-form'
+import { useNavigate } from "react-router-dom"
 
     // export async function uploadContent (content_author,
     // content_summary,content_parrafo,content_date,content_image)
     
     const UploadContent = () => {
 
-        const {register, handleSubmit} = useForm()
+    const {register, handleSubmit} = useForm()
 
-    let data = {
-    "content_author":`Kevin Borge`,
-    "content_summary":"Un mock server en Postman es una herramienta que nos permite simular las respuestas de una API (Application Programming Interfaces - Interfaz de Programación de Aplicaciones)",
-    "content_parrafo":"Con un mock server puedes definir y configurar diferentes endpoints según las necesidades y las respuestas según la situación. ",
-    "content_date":"2023-11-30",
-    "content_image":"https://media.istockphoto.com/id/1419410282/es/foto/silencioso-bosque-en-primavera-con-sol-brillante-hermoso.jpg?s=1024x1024&w=is&k=20&c=UxC-CQ-Ik_BbSH7hgQRzIl_Rq1NoC6-Wbn0-cVdgQDI="}
+    const navigate = useNavigate()
 
-    useEffect(()=> {
-        axios.post('http://localhost:3000/api/publicacion',data).then(resp =>{
-                console.log("dasdasdasd")
+    const onSubmit = handleSubmit((data) => {
+        console.log(data)
+            axios.post('http://localhost:3000/api/publicacion',data).catch(error => {
+            navigate('/404')
         })
     })
+
+    const paginaError = () => <p>Error404</p>
+
+    // let data = {onSubmit}
+    // console.log("data",data)
 
     return(
             <>
                 <div className="flex justify-center">
-                    <form onSubmit={handleSubmit ((data) => {
-                        console.log("bandera",data)
-                    })} className="border-2 border-red-400">
+                    <form onSubmit={onSubmit} className="border-2 border-red-400">
                         <div className="flex flex-col text-center gap-2 w-[500px]">
                         <label htmlFor="">Autor</label>
                         <input type="text" defaultValue="" {...register("content_author")} className="rounded-md "/>
