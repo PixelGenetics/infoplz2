@@ -3,14 +3,25 @@ import axios from "axios"
 const Body = () =>{
 
     const [inicio,setInicio] = useState([])
+    const [pagina,setPagina] = useState([])
 
     useEffect(()=>{
         axios.get('http://localhost:3000/api/publicacion?page=1&limit=3').then(resp => {
             setInicio(resp.data.rows)
-            console.log(resp.data.rows)
-            console.log("dasdsad",resp.data.rows[0].content_image)
+            // console.log(resp.data.rows)
+            // console.log("dasdsad",resp.data.rows[0].content_image)
+            setPagina(resp.data.pagination.totalPage)
+            // console.log("2",informacion)
         })
     },[])
+
+    useEffect(() => {
+        axios.get(`http://localhost:3000/api/publicacion?page=${pagina}&limit=3`).then(resp => {
+            // setInicio()
+            console.log('reps',resp)
+        })
+    })
+
 
 
     return(
