@@ -11,16 +11,20 @@ const Body = () =>{
             // console.log(resp.data.rows)
             // console.log("dasdsad",resp.data.rows[0].content_image)
             setPagina(resp.data.pagination.totalPage)
+            console.log("pagina",pagina)
             // console.log("2",informacion)
         })
     },[])
 
-    useEffect(() => {
-        axios.get(`http://localhost:3000/api/publicacion?page=${pagina}&limit=3`).then(resp => {
-            // setInicio()
-            console.log('reps',resp)
+    const myComponent = () => {
+        useEffect(() => {
+            const myFn = async () => { axios.get(`http://localhost:3000/api/publicacion?page=${pagina}&limit=3`).then(resp => {
+                // setInicio()
+                // console.log('reps',resp)
+            })}
+            myFn()
         })
-    })
+}
 
 
 
