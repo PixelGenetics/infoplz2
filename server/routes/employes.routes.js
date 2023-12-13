@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { deletePublicacion, getPublicaciones, postPublicacion, updatePublicacion, getPublicacion } 
+import { deletePublicacion, getPublicaciones, postPublicacion, updatePublicacion, getPublicacion, getPublicacionesGeneral } 
 from "../controllers/publicar.controllers.js";
 import { publicarImagen} from "../controllers/storage.controller.js";
 
@@ -8,6 +8,8 @@ const router = Router();
 router.get('/publicacion',getPublicaciones);
 
 router.get('/publicacion/:id', getPublicacion);
+
+router.get('/publicacionesgeneral',getPublicacionesGeneral)
 
 router.post('/publicacion', postPublicacion);
 
