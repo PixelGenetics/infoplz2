@@ -5,26 +5,22 @@ const Body = () =>{
     const [inicio,setInicio] = useState([])
     const [pagina,setPagina] = useState([])
 
-    useEffect(()=>{
+    useEffect(() => {
         axios.get('http://localhost:3000/api/publicacion?page=1&limit=3').then(resp => {
-            setInicio(resp.data.rows)
-            // console.log(resp.data.rows)
-            // console.log("dasdsad",resp.data.rows[0].content_image)
+        //   setInicio(resp.data.rows);
             setPagina(resp.data.pagination.totalPage)
-            console.log("pagina",pagina)
-            // console.log("2",informacion)
-        })
-    },[])
+            console.log("pagina", pagina)
+            myFn(resp.data.pagination.totalPage)
+        });
+    }, []);
 
-    const myComponent = () => {
-        useEffect(() => {
-            const myFn = async () => { axios.get(`http://localhost:3000/api/publicacion?page=${pagina}&limit=3`).then(resp => {
-                // setInicio()
-                // console.log('reps',resp)
-            })}
-            myFn()
+    const myFn = (pagina) => {
+        axios.get(`http://localhost:3000/api/publicacion?page=${pagina}&limit=3`).then(resp => {
+            console.log('reps', resp)
+            setInicio(resp.data.rows)
         })
-}
+    };
+
 
 
 
