@@ -2,8 +2,6 @@ import connection from "../db.js";
 
 export const getPublicaciones = async(req,res) => {
     try {
-
-
         // Traer multiple publicaciones de manera limitada 
         const { page, limit} = req.query;
         const offset = (page - 1 ) * limit;
@@ -33,6 +31,24 @@ export const getPublicaciones = async(req,res) => {
         })
     }
 };
+
+
+export const getPublicacionesGeneral = async(req,res) => {
+    try {
+
+        const [rows] = await connection.query('SELECT * FROM contenido')
+        console.log('rows',rows)
+        res.json({
+            rows:rows
+        }
+        );
+    } catch (error) {
+        return res.status(500).json({
+            message:"Something went wrong"
+        })
+    }
+};
+
 
 export const getPublicacion = async(req,res) => {
     try {
