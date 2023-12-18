@@ -7,29 +7,9 @@ const Body = () =>{
 
     useEffect(() => {
         axios.get('http://localhost:3000/api/publicacionreveslimited').then(resp => {
-        //   setInicio(resp.data.rows);
-            // setPagina(resp.data.pagination.totalPage)
-            console.log("resp", resp.data.rows)
             setInicio(resp.data.rows)
-            // myFn(resp.data.pagination.totalPage)
-            // console.log("if",resp.data)
         });
     }, []);
-
-    // const myFn = (pagina) => {
-    //     axios.get(`http://localhost:3000/api/publicacion?page=${pagina}&limit=3`).then(resp => {
-    //         let lastPage = resp.data.rows
-    //         let paginaAnterior = pagina - 1;
-    //         console.log('reps', paginaAnterior)
-    //         if (lastPage.length == 1){
-    //             axios.get(`http://localhost:3000/api/publicacion?page=${pagina}`)
-    //         }
-    //         setInicio(resp.data.rows)
-    //     })
-    // };
-
-
-
 
     return(
         <>
