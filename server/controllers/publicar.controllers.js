@@ -33,6 +33,34 @@ export const getPublicaciones = async(req,res) => {
 };
 
 
+export const getPublicacionesRevesLimited = async(req,res) =>{
+    try{
+        const [rows] = await connection.query('SELECT * FROM contenido ORDER BY content_id DESC LIMIT 3')
+        console.log('rows',rows)
+        res.json({
+            rows:rows
+        })
+    }catch(error){
+        return res.status(500).json({
+            message:"something went wrong"
+        })
+    }
+}
+
+export const getPublicacionesReves = async(req,res) =>{
+    try{
+        const [rows] = await connection.query('SELECT * FROM contenido ORDER BY content_id DESC')
+        res.json({
+            rows:rows
+        })
+    }catch(error){
+        return res.status(500).json({
+            message:"something went wrong"
+        })
+    }
+}
+
+
 export const getPublicacionesGeneral = async(req,res) => {
     try {
 
