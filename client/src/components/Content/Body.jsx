@@ -15,6 +15,7 @@ const Body = () =>{
         <>
         <div className="flex">
 
+
         {
             inicio.map(item => (
             
