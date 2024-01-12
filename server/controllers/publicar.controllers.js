@@ -96,8 +96,32 @@ export const getPublicacion = async(req,res) => {
 }
 
 export const postPublicacion = async (req,res) => {
-    try {
-        const {content_author,content_summary, content_parrafo,content_date,content_image} = req.body;
+//     try {
+//         const {content_author,content_summary, content_parrafo,content_date,content_image} = req.body;
+//     const [rows] = await connection.query('INSERT INTO contenido (content_author,content_summary, content_parrafo,content_date, content_image) VALUES (?,?,?,?,?)',[content_author,content_summary,content_parrafo,content_date,content_image])
+//     res.send({
+//         content_id: rows.insertId,
+//         content_author,
+//         content_summary,
+//         content_parrafo,
+//         content_date,
+//         content_image
+//     });
+//     } catch (error) {
+//         return res.status(500).json({
+//             message:"Something went wrong"
+//         })
+//     }
+// };
+const {content_author,content_summary, content_parrafo,content_date,content_image} = req.body;
+
+try{
+    if(content_author.length <= 0 || content_summary.length <=0 || content_parrafo.length <=0 || content_image.length <=0){
+        return res.status(500).json({
+            message:"Error unknown"
+        })
+    }
+        
     const [rows] = await connection.query('INSERT INTO contenido (content_author,content_summary, content_parrafo,content_date, content_image) VALUES (?,?,?,?,?)',[content_author,content_summary,content_parrafo,content_date,content_image])
     res.send({
         content_id: rows.insertId,
@@ -107,12 +131,24 @@ export const postPublicacion = async (req,res) => {
         content_date,
         content_image
     });
-    } catch (error) {
-        return res.status(500).json({
-            message:"Something went wrong"
-        })
-    }
-};
+}
+    catch(error){
+
+        if(error){
+            console.log("error: ",error.code);
+            if(error.code === 'ER_TRUNCATED_WRONG_VALUE'){
+                return res.status(404).json({
+                    message:"Error en la fecha"
+                })
+            }
+        }
+
+        // return res.status(500).json({
+        //     message:error.code
+        // })
+}
+
+}
 
 export const updatePublicacion = async (req,res) => {
     try {
