@@ -1,13 +1,11 @@
 import imagen from "../assets/error404.jpg"
 
 const Error404 = () => {
-
-    
-
     return(
         <>
-        <div className="flex justify-center w-[100%]">
-            <img src={imagen} alt="" className="w-[20%] mt-[15%]" />
+        <div className="">
+            <h2>Te has encontrado con un error</h2>
+            <img src={imagen} alt="" className="" />
         </div>
         </>
     )
