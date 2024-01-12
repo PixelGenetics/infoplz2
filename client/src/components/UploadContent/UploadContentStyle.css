@@ -1,0 +1,9 @@
+.UploadContent div{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.UploadContent .formContent{
+    border: 2px solid blue;
+}
