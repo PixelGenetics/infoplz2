@@ -20,11 +20,16 @@ const Body = () =>{
         setFontsLoaded(true);
         })
     })
-
+    const authorStyle = {
+        fontFamily: fontsLoaded ? 'Quicksand, sans-serif' : 'serif',
+        fontWeight: '600',
+        fontSize: '18px',
+        marginBottom:'16px'
+    };
     const titleStyle = {
         fontFamily: fontsLoaded ? 'Quicksand, sans-serif' : 'serif',
         fontWeight: '600',
-        fontSize: '36px',
+        fontSize: '20px',
         marginBottom:'16px'
     };
 
@@ -37,19 +42,36 @@ const Body = () =>{
 
     return(
         <>
-        <div className="flex">
+        <div className="outter-div">
         {
             inicio.map(item => (
             
                 <div key={item.content_id} className="main-div">
                     <div className="inner-main-div">
-                        <img src={item.content_image} alt="" className=""/>
-                        <h2 className="" style={titleStyle}>Author: {item.content_author}</h2>
-                        <p className="" style={contentStyle}>{item.content_summary}</p>
+                        <img src={item.content_image} alt="" className="inner-main-div-imagen"/>
+                        <h2 style={authorStyle} className="">{item.content_author}</h2>
+                        <h3 style={titleStyle}>{item.content_title}</h3>
+                        <p style={contentStyle}>{item.content_summary}</p>
+                    </div>
+                </div>
+
+
+            ))
+        }
+
+        {
+            inicio.map(item => (
+                <div key={item.content_id} className="extra-blogs">
+                    <div className="inner-extra-blogs">
+                        <h2 style={authorStyle}>{item.content_author}</h2>
+                        <h3 style={titleStyle}>{item.content_title}</h3>
+                        <p style={contentStyle}>{item.content_summary}</p>
                     </div>
                 </div>
             ))
         }
+
+
         </div>
         </>
     )
