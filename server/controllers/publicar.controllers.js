@@ -35,7 +35,7 @@ export const getPublicaciones = async(req,res) => {
 
 export const getPublicacionesRevesLimited = async(req,res) =>{
     try{
-        const [rows] = await connection.query('SELECT * FROM contenido ORDER BY content_id DESC LIMIT 3')
+        const [rows] = await connection.query('SELECT * FROM contenido ORDER BY content_id DESC LIMIT 6')
         console.log('rows',rows)
         res.json({
             rows:rows
@@ -96,24 +96,7 @@ export const getPublicacion = async(req,res) => {
 }
 
 export const postPublicacion = async (req,res) => {
-//     try {
-//         const {content_author,content_summary, content_parrafo,content_date,content_image} = req.body;
-//     const [rows] = await connection.query('INSERT INTO contenido (content_author,content_summary, content_parrafo,content_date, content_image) VALUES (?,?,?,?,?)',[content_author,content_summary,content_parrafo,content_date,content_image])
-//     res.send({
-//         content_id: rows.insertId,
-//         content_author,
-//         content_summary,
-//         content_parrafo,
-//         content_date,
-//         content_image
-//     });
-//     } catch (error) {
-//         return res.status(500).json({
-//             message:"Something went wrong"
-//         })
-//     }
-// };
-const {content_author,content_summary, content_parrafo,content_date,content_image} = req.body;
+const {content_author,content_title,content_summary, content_parrafo,content_date,content_image} = req.body;
 
 try{
     if(content_author.length <= 0 || content_summary.length <=0 || content_parrafo.length <=0 || content_image.length <=0){
@@ -122,10 +105,11 @@ try{
         })
     }
         
-    const [rows] = await connection.query('INSERT INTO contenido (content_author,content_summary, content_parrafo,content_date, content_image) VALUES (?,?,?,?,?)',[content_author,content_summary,content_parrafo,content_date,content_image])
+    const [rows] = await connection.query('INSERT INTO contenido (content_author,content_title,content_summary, content_parrafo,content_date, content_image) VALUES (?,?,?,?,?,?)',[content_author,content_title,content_summary,content_parrafo,content_date,content_image])
     res.send({
         content_id: rows.insertId,
         content_author,
+        content_title,
         content_summary,
         content_parrafo,
         content_date,
@@ -153,9 +137,9 @@ try{
 export const updatePublicacion = async (req,res) => {
     try {
     const {id} = req.params 
-    const {content_author,content_summary,content_parrafo} = req.body
+    const {content_author,content_title,content_summary,content_parrafo} = req.body
     
-    const [result] = await connection.query('UPDATE contenido SET content_author = IFNULL(?, content_author), content_summary = IFNULL(?, content_summary), content_parrafo = IFNULL(?, content_parrafo) WHERE content_id = ?', [content_author,content_summary,content_parrafo,id])
+    const [result] = await connection.query('UPDATE contenido SET content_author = IFNULL(?, content_author), content_title = IFNULL(?, content_title),content_summary = IFNULL(?, content_summary), content_parrafo = IFNULL(?, content_parrafo) WHERE content_id = ?', [content_author,content_title,content_summary,content_parrafo,id])
     console.log(result)
     
     if(result.affectedRows <= 0 )return res.status(400).json({
