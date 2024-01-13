@@ -10,9 +10,8 @@ import { useEffect,useState } from "react"
     // content_summary,content_parrafo,content_date,content_image)
     
     const UploadContent = () => {
-
     const [fontsLoaded, setFontsLoaded] = useState(false);
-    const {register, handleSubmit} = useForm()
+    const {register, handleSubmit, formState:{errors} } = useForm()
     const [inicio,setInicio] = useState([]);
 
     const navigate = useNavigate()
@@ -61,17 +60,35 @@ import { useEffect,useState } from "react"
                 <div className="UploadContent">
                     <form onSubmit={onSubmit} className="">
                         <div style={contentStyle} className="formContent">
+
                         <label htmlFor="" style={titleStyle}>Autor</label>
-                        <input type="text" defaultValue="" {...register("content_author")}/>
+                        <input type="text" defaultValue=""  {...register("content_author")}/>
+                        {}
+
+                        <label htmlFor="" style={titleStyle}>Title</label>
+                        <textarea name="" id="" cols="30" rows="10"{...register("content_title", {required:true, maxLength:150})}></textarea>
+                        {errors.content_title && errors.content_title.type === "required" && <span>This is required</span>}
+                        {errors.content_content_title && errors.content_title.type === "maxLength" && <span>Max length exceeded</span>}
+
                         <label htmlFor="" style={titleStyle}>Resumen</label>
-                        <textarea name="" id="" cols="30" rows="5" {...register("content_summary")}></textarea>
+                        <textarea name="" id="" cols="30" rows="5" {...register("content_summary", {required: true, maxLength:150})}></textarea>
+                        {errors.content_summary && errors.content_summary.type === "required" && <span>This is required</span>}
+                        {errors.content_summary && errors.content_summary.type === "maxLength" && <span>Max length exceeded</span>}
+
                         <label htmlFor="" style={titleStyle}>Informacion</label>
-                        <textarea name="" id="" cols="30" rows="10" {...register("content_parrafo")}></textarea>
+                        <textarea name="" id="" cols="30" rows="10" {...register("content_parrafo", {required:true})}></textarea>
+                        {errors.content_parrafo && errors.content_parrafo.type === "required" && <span>This is required</span>}
+
                         <label htmlFor="" style={titleStyle}>Fecha</label>
-                        <input type="text" defaultValue="" {...register("content_date")} className=""/>
+                        <input type="text" defaultValue="" {...register("content_date", {required:true})} className=""/>
+                        {errors.content_date && errors.content_date.type === "required" && <span>This is required</span>}
+
                         <label htmlFor="" style={titleStyle}>Link de imagen</label>
-                        <input type="text" defaultValue="" {...register("content_image")} className=""/>
+                        <input type="text" defaultValue="" {...register("content_image", {required:true})} className=""/>
+                        {errors.content_image && errors.content_image.type === "required" && <span>This is required</span>}
+
                         <button type="submit" className="">Subir</button>
+
                         </div>
                     </form>
                 </div>
