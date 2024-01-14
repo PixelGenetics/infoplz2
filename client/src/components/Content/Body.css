@@ -1,10 +1,36 @@
+.explore-techonology{
+    display: flex;
+}
+
+.inner-explore-tech{
+    display: flex;
+    margin-top: 200px;
+    margin-left: 292px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.explore-techonology  .inner-explore-tech h2{
+    margin-bottom: 0;
+}
+
+/* .explore-techonology  .inner-explore-tech hr{
+    position: absolute;
+    top: 16.2%;
+    width: 47.8%;
+    height: 10px;
+    margin-left: 1130px;
+    border: none;
+    border-top: 2px solid #ffffff;
+} */
+
 .outter-div{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     gap: 60px;
-    margin: 0 290px;
+    margin: 20px 290px;
     background: #181818;
 }
 
@@ -22,7 +48,7 @@
 }
 
 .main-div .inner-main-div h2{
-    padding: 0px 25px;
+    padding: 15px 25px;
 }
 
 .main-div .inner-main-div h3{
