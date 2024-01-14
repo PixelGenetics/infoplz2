@@ -42,7 +42,13 @@ const Body = () =>{
 
     return(
         <>
+            <div className="explore-techonology">
+                <div className="inner-explore-tech">
+                    <h2 style={titleStyle}>Explore Technology </h2>
+                </div>
+            </div>
         <div className="outter-div">
+
         {
             inicio.map(item => (
             
