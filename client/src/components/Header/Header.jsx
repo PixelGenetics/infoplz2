@@ -5,20 +5,11 @@ import axios from "axios"
 
 const Header = () =>{        
     const [fontsLoaded, setFontsLoaded] = useState(false);
-    const [articulo,setArticulo] = useState([]);
-    const [search,setSearch] = useState("");
 
-    useEffect(() => {
-        axios.get('http://localhost:3000/api/publicacionreveslimited').then(resp => {
-            setSearch(resp.data.rows)
-        });
-    }, []);
 
-    //Funcion de busqueda
-    const searcher = (e) => {
-        setSearch(e.target.value)
-        console.log(e.target.value)
-    }
+
+
+
 
     useEffect(() => {
         LoadFonts(() => {
@@ -58,7 +49,7 @@ const Header = () =>{
         <div className='inner-header-component-2'>
             <ul>
                 <button style={titleStyle}><li><a>Lupa</a></li></button>
-                <input  value={search} onChange={searcher} type="text" className=""/>
+                
                 <button style={titleStyle}><li><a href="">Contact Sales</a></li></button>
                 <button style={titleStyle}><li><a href="">View Plans</a></li></button>
             </ul>
