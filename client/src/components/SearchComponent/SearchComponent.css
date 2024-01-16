@@ -1,0 +1,25 @@
+.SearchComponent-main-div{
+    margin: 0 450px;
+    display: flex;
+}
+
+
+.SearchComponent-main-div a{
+    text-decoration: none;
+}
+
+.SearchComponent-main-div div{
+    background: #222222;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 100px;
+    margin: 10px 0px 10px 0px;
+}
+
+    .class-input{
+    display: flex;
+    justify-content: center;
+    padding: 50px 90px;
+}
