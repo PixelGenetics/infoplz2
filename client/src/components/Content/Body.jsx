@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import LoadFonts from "../Config/LoadFonts";
 import './Body.css';
+import SearchComponent from "../SearchComponent/SearchComponent";
 
     const Body = () => {
     const [results, setResults] = useState([]);
     const [inicio, setInicio] = useState([]);
-    const [fontsLoaded, setFontsLoaded] = useState(false);
+    const [fontsLoaded, setFontsLoaded] = useState(true);
     const [search, setSearch] = useState("");
 
     const loadData = async () => {
@@ -31,7 +32,6 @@ import './Body.css';
         fontSize: '20px',
         marginBottom: '16px',
     };
-
     const contentStyle = {
         fontFamily: fontsLoaded ? 'Lato, sans-serif' : 'serif',
         fontWeight: '300',
@@ -60,12 +60,15 @@ import './Body.css';
 
     return (
         <>
+
         <div className="explore-techonology">
             <div className="inner-explore-tech">
-            <input value={search} onChange={searcher} type="text" />
+            {/* <input value={search} onChange={searcher} type="text" /> */}
             <h2 style={titleStyle}>Explore Technology </h2>
             </div>
         </div>
+        {/* Componente importado: SearchComponent */}
+        {/* <SearchComponent /> */}
         <div className="outter-div">
             {results.map((item) => (
             <div key={item.content_id} className="main-div">
