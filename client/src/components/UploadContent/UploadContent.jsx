@@ -5,10 +5,6 @@ import "../UploadContent/UploadContentStyle.css"
 import LoadFonts from "../Config/LoadFonts"
 import { useEffect,useState } from "react"
 
-
-    // export async function uploadContent (content_author,
-    // content_summary,content_parrafo,content_date,content_image)
-    
     const UploadContent = () => {
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const {register, handleSubmit, formState:{errors} } = useForm()
