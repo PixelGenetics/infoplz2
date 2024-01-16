@@ -1,4 +1,4 @@
-.header-component{
+/* .header-component{
     display: flex;
     position: fixed;
     flex-direction: row;
@@ -31,4 +31,19 @@
     display: flex;
     list-style: none;
     column-gap: 50px;
+} */
+
+.inner-header-component{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid red;
+}
+
+.inner-header-component div:nth-child(2){
+    border: 2px solid red;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 300px;
+    column-gap: 100px;
 }
