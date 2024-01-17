@@ -3,6 +3,7 @@ import LoadFonts from "../Config/LoadFonts"
 import './Header.css'
 import axios from "axios"
 import SearchComponent from "../SearchComponent/SearchComponent"
+import zoom from "../../assets/zoom-svgrepo-com.svg"
 
 
 const Header = () =>{        
@@ -57,23 +58,21 @@ const Header = () =>{
     return(
 
     <>
-    <div className='header-component'>
-        <div className='inner-header-component'>
-            <div>
-                <ul>
-                    <button style={titleStyle}><li><a href="">Logo</a></li></button>
-                </ul>
-            </div>
-            <div>
-                <ul>
-                <button><li><SearchComponent /></li></button>
-                <button style={titleStyle}><li><a href="https://portfolio-delta-peach-43.vercel.app/">Portafolio</a></li></button>
-                <button style={titleStyle}><li><a href="http://localhost:5173/upload">Upload Post</a></li></button>
-                </ul>
-            </div>
-        </div>
+        <div className="header-style">
+                <div style={titleStyle}>
+                    <ul>
+                        <li>Logo</li>
+                        <li><img src={zoom} alt="" /></li>
+                        <li>Linkedin</li>
+                        <li>GitHub</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src={zoom} alt="" />
+                    <input type="text" placeholder="What do you want to learn?"/>
+                </div>
 
-    </div>
+        </div>
     </>
     )
 }
