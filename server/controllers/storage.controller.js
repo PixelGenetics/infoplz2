@@ -1,6 +1,4 @@
-import fs from 'fs';
 import connection from "../db.js";
-import sharp from "sharp";
 
     export function guardarImagen(req,res) {
     const nombre = req.file.originalname; //req.file.originalname => originalname proviene de multer
