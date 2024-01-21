@@ -1,6 +1,8 @@
 import imagen from "../assets/error404.jpg"
 
 const Error404 = () => {
+console.log('.')
+
     return(
         <>
         <div className="">
