@@ -1,13 +1,22 @@
-import { useEffect,useState } from "react"
-import LoadFonts from "../Config/LoadFonts"
+//import { useState } from "react"
+//import LoadFonts from "../Config/LoadFonts"
 import './Header.css'
-import axios from "axios"
-import SearchComponent from "../SearchComponent/SearchComponent"
-import zoom from "../../assets/zoom-svgrepo-com.svg"
+/*import { IoSearchSharp } from "react-icons/io5";
+import IconoLogo from '../../../public/full-logo.png'*/
+import Menu from "./Menu";
+//import axios from "axios"
+// import SearchComponent from "../SearchComponent/SearchComponent"
+// import zoom from "../../assets/zoom-svgrepo-com.svg"
 
 
-const Header = () =>{        
-    const [fontsLoaded, setFontsLoaded] = useState(false);
+const Header = () =>{
+ /*   const [menuVisible, setMenuVisible] = useState(true);
+
+  const toggleMenu = () => {
+    setMenuVisible(!menuVisible);
+  };*/
+
+   /* const [fontsLoaded, setFontsLoaded] = useState(false);
     const [data,setData] = useState([]);
     const [mostrarMenu,setMostrarMenu] = useState(false);
     const [keyword, setKeyword] = useState("");
@@ -54,26 +63,60 @@ const Header = () =>{
         fontWeight: '300',
         fontSize:'18px',
     };
-
+*/
     return(
-
-    <>
-        <div className="header-style">
-                <div style={titleStyle}>
+        <>
+        <Menu />
+           {/*  <div className="menu-container">
+                <img src={IconoLogo} alt="" />
+                <div className={`menu-hamburguesa ${menuVisible ? 'open' : ''}`} onClick={toggleMenu}>
+                    <div className="bar"></div>
+                    <div className="bar"></div>
+                    <div className="bar"></div>
+                </div>
+                {menuVisible && (
+                    <div className="menu-items">
+                        <nav className='bg-red-500 menu'>
+                            <ul>
+                                <li>Politica</li>
+                                <li>Accidentes</li>
+                                <li>Cultura</li>
+                                <li>Internacionales</li>
+                                <li>Tecnología</li>
+                            </ul>
+                        </nav>
+                        <div className='botones'>
+                            <button>
+                                <IoSearchSharp />
+                            </button>
+                            <button>Contactenos</button>
+                            <button>Contactenos</button>
+                        </div>
+                    </div>
+                )}
+            </div>*/ }
+           {/* <div className="header">
+                <div className='logo'>
+                    <img src={IconoLogo} alt="" />
+                </div>
+                <nav className='bg-red-500 menu'>
                     <ul>
-                        <li>Logo</li>
-                        <li><img src={zoom} alt="" /></li>
-                        <li>Linkedin</li>
-                        <li>GitHub</li>
+                        <li>Politica</li>
+                        <li>Accidentes</li>
+                        <li>Cultura</li>
+                        <li>Internacionales</li>
+                        <li>Tecnología</li>
                     </ul>
+                </nav>
+                <div className='botones'>
+                    <button>
+                        <IoSearchSharp />
+                    </button>
+                    <button>Contactenos</button>
+                    <button>Contactenos</button>
                 </div>
-                <div>
-                    <img src={zoom} alt="" />
-                    <input type="text" placeholder="What do you want to learn?"/>
-                </div>
-
-        </div>
-    </>
+            </div>*/ }
+        </>
     )
 }
 

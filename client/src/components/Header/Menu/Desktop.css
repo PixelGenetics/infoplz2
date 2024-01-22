@@ -1,0 +1,81 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1rem;
+    color: #A5AACF;
+    font-family: "Work Sans", sans-serif;
+    max-width: 1500px;
+}
+
+@media screen and (min-width: 1066px) {
+    .header {
+        padding: 1rem 2rem;
+    }
+}
+
+@media screen and (min-width: 1170px) {
+    .header {
+        padding: 1rem 5rem;
+    }
+}
+
+.header .logo img {
+    width: 11rem;
+}
+
+.header .menu {
+    /*background: rgba(133, 118, 34,0.6);*/
+    width: 100%;
+}
+
+.header .menu ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.header .menu ul li {
+    cursor: pointer;
+}
+
+.header .menu ul li:hover {
+    color: white;
+    transition: color 0.6s ease;
+}
+
+.header .botones {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.header .botones button:first-child {
+    border: none;
+    background: transparent;
+    color: #A5AACF;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding-right: 0.5rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.header .botones button:not(:first-child) {
+    background: transparent;
+    border: 2px solid #585FA2;
+    border-radius: 6rem;
+    color: #A5AACF;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 0.5s ease-in-out;
+    transition: color 0.2s ease-in-out;
+}
+
+.header .botones button:not(:first-child):hover {
+    background: #585FA2;
+    color: white;
+}
+
+.header .botones button:first-child:hover {
+    color: white;
+}
