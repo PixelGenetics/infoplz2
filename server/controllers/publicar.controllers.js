@@ -15,7 +15,7 @@ export const getPublicaciones = async(req,res) => {
         console.log("TotalPage: ",totalPage)
 
         
-
+console.log(".")
         res.json({
             rows:rows,
             pagination:{
