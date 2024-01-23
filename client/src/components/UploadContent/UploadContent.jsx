@@ -94,7 +94,7 @@ import Form from 'react-bootstrap/Form';
 
                 {/* </div> */}
             </>
-        )
+        ) 
 }
 
 export default UploadContent
