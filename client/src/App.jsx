@@ -5,8 +5,6 @@ import UploadContent from './components/UploadContent/UploadContent.jsx';
 import Error404 from './404/Error404.jsx';
 import SearchComponent from './components/SearchComponent/SearchComponent.jsx';
 function App() {
-
-
   return (
     <>
     <div>
