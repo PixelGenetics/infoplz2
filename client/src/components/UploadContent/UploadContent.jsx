@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import "../UploadContent/UploadContentStyle.css"
 import LoadFonts from "../Config/LoadFonts"
 import { useEffect,useState } from "react"
-import Form from 'react-bootstrap/Form';
+// import Form from 'react-bootstrap/Form';
 
     const UploadContent = () => {
     const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -89,8 +89,8 @@ import Form from 'react-bootstrap/Form';
                         </div>
                     </form> */}
 
-<label for="inputPassword5" class="form-label">Password</label>
-<input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"/>
+{/*<label for="inputPassword5" class="form-label">Password</label>
+<input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"/> */}
 
                 {/* </div> */}
             </>

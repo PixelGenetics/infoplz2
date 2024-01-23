@@ -5,8 +5,9 @@
     gap: 1.5rem;
     padding: 1rem;
     color: #A5AACF;
+    width: 100%;
     font-family: "Work Sans", sans-serif;
-    max-width: 1500px;
+    /*max-width: 1500px;*/
 }
 
 @media screen and (min-width: 1066px) {
