@@ -15,14 +15,9 @@ const Menu = () => {
     }, []);
 
     return (
-        <div className="menu-container">
-            {windowWidth <= 991 && ( // Muestra el menú de hamburguesas solo si el ancho de la pantalla es menor o igual a 768px
-                <Mobile />
-            )}
-
-            {windowWidth >= 992 && ( // Muestra el menú de hamburguesas solo si el ancho de la pantalla es menor o igual a 768px
-                <Desktop />
-            )}
+        <div className='menu-container'>
+            { windowWidth <= 991 && <Mobile /> }
+            { windowWidth >= 992 && <Desktop /> }
         </div>
     );
 };

@@ -1,12 +1,10 @@
 
 /* MenuHamburguesa.css */
-.menu-container {
+.menu-container-movil {
     position: relative;
-    background:#242145;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
     padding: 1rem 2rem;
 }
 

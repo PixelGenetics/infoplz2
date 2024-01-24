@@ -10,7 +10,7 @@ const Mobile = () => {
     };
 
     return (
-        <div className="menu-container">
+        <div className="menu-container-movil">
             <img src={IconoLogo} alt="" />
             <div className={`menu-hamburguesa ${menuVisible ? 'open' : ''}`} onClick={toggleMenu}>
                 <div className="bar"></div>
