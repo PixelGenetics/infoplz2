@@ -18,7 +18,7 @@ const Mobile = () => {
                 <div className="bar"></div>
             </div>
             {menuVisible && (
-                <div className="menu-items">
+                <div className={`menu-items ${menuVisible ? 'open' : ''}`}>
                     <nav className='menu'>
                         <ul>
                             <li>Politica</li>
