@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState } from 'react'
+import { IoSearchSharp } from 'react-icons/io5'
+import { IoClose } from 'react-icons/io5'
 import IconoLogo from '../../../../public/full-logo.png'
 import './Mobile.css'
 
@@ -19,6 +21,11 @@ const Mobile = () => {
             </div>
             {menuVisible && (
                 <div className={`menu-items ${menuVisible ? 'open' : ''}`}>
+                    <div className='search'>
+                            <IoSearchSharp />
+                            <input type="text" placeholder='¿Qué deseas encontrar?' />
+                            <IoClose />
+                        </div>
                     <nav className='menu'>
                         <ul>
                             <li>Politica</li>
@@ -29,8 +36,6 @@ const Mobile = () => {
                         </ul>
                     </nav>
                     <div className='botones'>
-                        <button>Buscar
-                        </button>
                         <button>Contactenos</button>
                         <button>Contactenos</button>
                     </div>
