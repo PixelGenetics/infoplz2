@@ -1,5 +1,3 @@
-
-/* MenuHamburguesa.css */
 .menu-container-movil {
     position: relative;
     display: flex;
@@ -14,16 +12,16 @@
 }
 
 .menu-hamburguesa {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
-    border: none;
-    padding: 0;
-    margin: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 .menu-hamburguesa .bar {
@@ -32,58 +30,51 @@
     background-color: #eee7e7;
 }
 
-  .menu-hamburguesa.open .bar:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-  }
-  
-  .menu-hamburguesa.open .bar:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .menu-hamburguesa.open .bar:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-  }
+.menu-hamburguesa.open .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
 
+.menu-hamburguesa.open .bar:nth-child(2) {
+  opacity: 0;
+}
 
-  .menu-items {
-    position: absolute;
-    top: 60px; /* Ajusta la posición del menú desplegable según tu diseño */
-    left: 0;
-    width: 100%;
-    height: fit-content;
-    background: #262626;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .menu-container-movil .menu-items .menu {
-    padding: 1rem 2.5rem;
-    
-  }
-  
-  
-    .menu-container-movil .menu-items .menu {
-      padding: 1rem 2.5rem;
-      
-    }
-    
-    .menu-items nav ul {
-      list-style: none;
-      width: 100%;
-    }
-    .menu-items nav ul li {
-      padding-top: 0.7rem;
-      font-family: "Work Sans", sans-serif;
-      color: #dcdfef;
-      cursor: pointer;
-    }
+.menu-hamburguesa.open .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
 
-  .menu-items p {
-      margin: 0;
-      padding: 8px;
-      cursor: pointer;
-      /*border-bottom: 1px solid #ccc;*/
-  }
+.menu-items {
+  position: absolute;
+  top: 60px; /* Ajusta la posición del menú desplegable según tu diseño */
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  background: #262626;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-container-movil .menu-items .menu {
+  padding: 0rem 2.5rem;
+}
+
+.menu-items nav ul {
+  list-style: none;
+  width: 100%;
+}
+
+.menu-items nav ul li {
+  padding-top: 0.7rem;
+  font-family: "Work Sans", sans-serif;
+  color: #dcdfef;
+  cursor: pointer;
+}
+
+.menu-items p {
+  margin: 0;
+  padding: 8px;
+  cursor: pointer;
+  /*border-bottom: 1px solid #ccc;*/
+}
 
 .botones {
   display: flex;
