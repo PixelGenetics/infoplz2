@@ -4,7 +4,7 @@ const connection = createPool({
     host:"localhost",
     database:"firstapi",
     user:"root",
-    password:"1234"
+    password:""
 });
 
 export default connection;

@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import LoadFonts from "../Config/LoadFonts";
 import './Body.css';
 import SearchComponent from "../SearchComponent/SearchComponent";
+import { useSelector, useDispatch } from 'react-redux'
+import Card from "./Card";
 
     const Body = () => {
     const [results, setResults] = useState([]);
     const [inicio, setInicio] = useState([]);
-    const [fontsLoaded, setFontsLoaded] = useState(true);
+    //const [fontsLoaded, setFontsLoaded] = useState(true);
     const [search, setSearch] = useState("");
+
+    const counter = useSelector(state => state.counter)
 
     const loadData = async () => {
         try {
@@ -20,7 +23,7 @@ import SearchComponent from "../SearchComponent/SearchComponent";
         }
     };
 
-    const authorStyle = {
+   /* const authorStyle = {
         fontFamily: fontsLoaded ? 'Quicksand, sans-serif' : 'serif',
         fontWeight: '600',
         fontSize: '18px',
@@ -38,15 +41,19 @@ import SearchComponent from "../SearchComponent/SearchComponent";
         fontSize: '18px',
         marginBottom: '16px',
     };
+*/
+
+    const filter = {
+        backgroundColor: 'red',
+        with: '100vw',
+        heigth: '100vh'
+    }
 
     useEffect(() => {
         loadData();
-        LoadFonts(() => {
-        setFontsLoaded(true);
-        });
-    }, []);
+    }, [])
 
-    const searcher = (event) => {
+   /* const searcher = (event) => {
         const searchTerm = event.target.value;
         setSearch(searchTerm);
 
@@ -56,44 +63,37 @@ import SearchComponent from "../SearchComponent/SearchComponent";
         );
 
         setResults(filteredResults);
-    };
+    };*/
 
     return (
-        <>
+        <main>
+            <div style={counter ? {} : filter}></div>
+            <div className="main-line">
+                <p>Explore Technology </p>
+                <hr />
+            </div>
+            <div className="outter-div">
+                {
+                    results.map((item) => (
+                        <div key={item.content_id} className="main-div">
+                            <div className="main-image">
+                                <img src='https://i.postimg.cc/dVYmj3xj/header-blog-chatgpt-vs-bard.jpg' alt="" className="inner-main-div-imagen" />
+                            </div>
+                            <h2  className="card-author">{item.content_author}</h2>
+                            <h3 className="card-title">{item.content_title}</h3>
+                            <p className="card-text">{item.content_parrafo}</p>
+                        </div>
+                    ))
 
-        <div className="explore-techonology">
-            <div className="inner-explore-tech">
-            {/* <input value={search} onChange={searcher} type="text" /> */}
-            <h2 style={titleStyle}>Explore Technology </h2>
+                }
             </div>
-        </div>
-        {/* Componente importado: SearchComponent */}
-        {/* <SearchComponent /> */}
-        <div className="outter-div">
+            <div className="card-div">
             {results.map((item) => (
-            <div key={item.content_id} className="main-div">
-                <div className="inner-main-div">
-                <img src={item.content_image} alt="" className="inner-main-div-imagen" />
-                <h2 style={authorStyle} className="">
-                    {item.content_author}
-                </h2>
-                <h3 style={titleStyle}>{item.content_title}</h3>
-                <p style={contentStyle}>{item.content_summary}</p>
-                </div>
-            </div>
+                <Card item={item} key={item.content_id} />
             ))}
-            {results.map((item) => (
-            <div key={item.content_id} className="extra-blogs">
-                <div className="inner-extra-blogs">
-                <h2 style={authorStyle}>{item.content_author}</h2>
-                <h3 style={titleStyle}>{item.content_title}</h3>
-                <p style={contentStyle}>{item.content_summary}</p>
-                </div>
             </div>
-            ))}
-        </div>
-        </>
+        </main>
     );
     };
 
-export default Body;
+export default Body

@@ -1,11 +1,20 @@
 import IconoLogo from '../../../../public/full-logo.png'
 import { IoSearchSharp } from 'react-icons/io5'
 import { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import { toggle } from '../../../store/slices/counter.slice'
 import { IoClose } from 'react-icons/io5';
 import './Desktop.css'
 
 const Desktop = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+    const dispatch = useDispatch()
+
+    const dispatchIncrement = () => {
+        dispatch(toggle(isOpenMenu))
+        setIsOpenMenu(!isOpenMenu)
+    }
 
     return (
         <>
@@ -23,7 +32,7 @@ const Desktop = () => {
                     </ul>
                 </nav>
                 <div className='botones'>
-                    <button onClick={() => setIsOpen(!isOpen)}>
+                    <button onClick={dispatchIncrement}>
                         <IoSearchSharp />
                     </button>
                     <button>Contactenos</button>
@@ -31,7 +40,7 @@ const Desktop = () => {
                 </div>
             </div>
             {
-                isOpen && (
+                isOpenMenu && (
                     <>
                         <hr className='hr'/>
                         <div className='search'>
