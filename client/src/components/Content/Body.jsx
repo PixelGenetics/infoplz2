@@ -8,6 +8,7 @@ const Body = () => {
     const [results, setResults] = useState([]);
 
     const counter = useSelector(state => state.counter)
+    const menuDispatch = useSelector(state => state.menu)
 
     const loadData = async () => {
         try {
@@ -28,9 +29,18 @@ const Body = () => {
         loadData();
     }, [])
 
+    /**  Margen cuando baja el menú hamburgesa **/
+    const marginTop1 = {
+        marginTop: '310px'
+    }
+
+    const marginTop2 = {
+        marginTop: '0px'
+    }
+
     return (
-        <main>
-            <div style={counter ? {} : filter}></div>
+        <main style={menuDispatch ? marginTop1 : marginTop2}>
+            <div style={counter ? filter : {}}></div>
             <div className="main-line">
                 <p>Explore Technology </p>
                 <hr />

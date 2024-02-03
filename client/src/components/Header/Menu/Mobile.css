@@ -44,7 +44,7 @@
 
 .menu-items {
   position: absolute;
-  top: 60px; /* Ajusta la posición del menú desplegable según tu diseño */
+  top: 60px;
   left: 0;
   width: 100%;
   height: fit-content;
