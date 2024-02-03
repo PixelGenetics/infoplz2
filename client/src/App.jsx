@@ -9,14 +9,14 @@ import SearchComponent from './components/SearchComponent/SearchComponent.jsx';
 function App() {
   return (
     <>
-    <div>
-        <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='/upload' element={<UploadContent />} />
-          <Route path='/404' element={<Error404 />} />
-          <Route path='/search' element={<SearchComponent />} />
-        </Routes>
-    </div>
+      <div>
+          <Routes>
+            <Route path='/' element={<Home/>} />
+            <Route path='/upload' element={<UploadContent />} />
+            <Route path='/404' element={<Error404 />} />
+            <Route path='/search' element={<SearchComponent />} />
+          </Routes>
+      </div>
     </>
   )
 }

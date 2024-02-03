@@ -1,47 +1,22 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import './Body.css';
-import SearchComponent from "../SearchComponent/SearchComponent";
-import { useSelector, useDispatch } from 'react-redux'
-import Card from "./Card";
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import axios from 'axios'
+import Card from './Card'
+import './Body.css'
 
     const Body = () => {
     const [results, setResults] = useState([]);
-    const [inicio, setInicio] = useState([]);
-    //const [fontsLoaded, setFontsLoaded] = useState(true);
-    const [search, setSearch] = useState("");
 
     const counter = useSelector(state => state.counter)
 
     const loadData = async () => {
         try {
-        const response = await axios.get('http://localhost:3000/api/publicacionreveslimited');
-        setResults(response.data.rows);
-        setInicio(response.data.rows);
+            const response = await axios.get('http://localhost:3000/api/publicacionreveslimited')
+            setResults(response.data.rows)
         } catch (error) {
-        console.error('Error al cargar los datos:', error);
+            console.error('Error al cargar los datos:', error);
         }
-    };
-
-   /* const authorStyle = {
-        fontFamily: fontsLoaded ? 'Quicksand, sans-serif' : 'serif',
-        fontWeight: '600',
-        fontSize: '18px',
-        marginBottom: '16px',
-    };
-    const titleStyle = {
-        fontFamily: fontsLoaded ? 'Quicksand, sans-serif' : 'serif',
-        fontWeight: '600',
-        fontSize: '20px',
-        marginBottom: '16px',
-    };
-    const contentStyle = {
-        fontFamily: fontsLoaded ? 'Lato, sans-serif' : 'serif',
-        fontWeight: '300',
-        fontSize: '18px',
-        marginBottom: '16px',
-    };
-*/
+    }
 
     const filter = {
         backgroundColor: 'red',
@@ -52,18 +27,6 @@ import Card from "./Card";
     useEffect(() => {
         loadData();
     }, [])
-
-   /* const searcher = (event) => {
-        const searchTerm = event.target.value;
-        setSearch(searchTerm);
-
-        // Filtra los resultados basándonos en el término de búsqueda
-        const filteredResults = inicio.filter((item) =>
-        item.content_title.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-
-        setResults(filteredResults);
-    };*/
 
     return (
         <main>
