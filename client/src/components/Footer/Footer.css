@@ -5,6 +5,7 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    text-align: center;
     padding: 1rem 0rem;
     font-family: 'Work Sans', sans-serif;
 }
@@ -17,4 +18,10 @@ footer a {
 
 footer a:hover {
     color: #EC008C;
+}
+
+@media screen and (max-width: 1000px) {
+    footer {
+        font-size: 13px;
+    }
 }

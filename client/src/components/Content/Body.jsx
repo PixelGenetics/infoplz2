@@ -4,7 +4,7 @@ import axios from 'axios'
 import Card from './Card'
 import './Body.css'
 
-    const Body = () => {
+const Body = () => {
     const [results, setResults] = useState([]);
 
     const counter = useSelector(state => state.counter)

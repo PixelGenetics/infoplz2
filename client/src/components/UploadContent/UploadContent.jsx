@@ -1,4 +1,4 @@
-import axios from "axios"
+/*import axios from "axios"
 import {useForm} from 'react-hook-form'
 import { useNavigate } from "react-router-dom"
 import "../UploadContent/UploadContentStyle.css"
@@ -92,9 +92,9 @@ import { useEffect,useState } from "react"
 {/*<label for="inputPassword5" class="form-label">Password</label>
 <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"/> */}
 
-                {/* </div> */}
+                {/* </div> 
             </>
         ) 
 }
 
-export default UploadContent
+export default UploadContent*/ }
