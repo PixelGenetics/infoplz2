@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { IoSearchSharp } from 'react-icons/io5'
 import { IoClose } from 'react-icons/io5'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { downMenu } from '../../../store/slices/menu.slice'
 import IconoLogo from '../../../../public/full-logo.png'
 import './Mobile.css'

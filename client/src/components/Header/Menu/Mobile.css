@@ -73,7 +73,6 @@
   margin: 0;
   padding: 8px;
   cursor: pointer;
-  /*border-bottom: 1px solid #ccc;*/
 }
 
 .botones {
@@ -82,7 +81,7 @@
   width: 100%;
   gap: 1rem;
   align-items: baseline;
-  padding-bottom: 1rem;
+  padding: 1.2rem 0rem;
 }
 
 .botones button {

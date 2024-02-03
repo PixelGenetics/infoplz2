@@ -20,9 +20,9 @@ const Body = () => {
     }
 
     const filter = {
-        backgroundColor: 'red',
-        with: '100vw',
-        heigth: '100vh'
+        backgroundColor: "transparent",
+        width: '100%',
+        height: '100vh',
     }
 
     useEffect(() => {
@@ -39,8 +39,8 @@ const Body = () => {
     }
 
     return (
-        <main style={menuDispatch ? marginTop1 : marginTop2}>
-            <div style={counter ? filter : {}}></div>
+        <main style={menuDispatch ? marginTop2 : marginTop1}>
+            <div style={counter ? {} : filter}></div>
             <div className="main-line">
                 <p>Explore Technology </p>
                 <hr />
