@@ -1,0 +1,145 @@
+.header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    color: #A5AACF;
+    padding: 1.5rem;
+   /* background: goldenrod;*/
+    font-family: "Work Sans", sans-serif;
+}
+
+@media screen and (min-width: 1066px) {
+    .header {
+        padding: 1rem 2rem;
+    }
+}
+
+@media screen and (min-width: 1170px) {
+    .header {
+        padding: 1.3rem 8rem;
+        max-width: 1300px;
+    }
+}
+
+.header .logo img {
+    width: 11rem;
+}
+
+.header .menu {
+    /*background: rgba(133, 118, 34,0.6);*/
+    width: 100%;
+}
+
+.header .menu ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.header .menu ul li {
+    cursor: pointer;
+}
+
+.header .menu ul li:hover {
+    color: white;
+    transition: color 0.6s ease;
+}
+
+.header .botones {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 0rem;
+    gap: 1rem;
+   /* background: darkcyan;*/
+}
+
+.header .botones button:first-child {
+    border: none;
+    background: transparent;
+    color: #A5AACF;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding-right: 0.5rem;
+    margin-top: 0.4rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.header .botones button:not(:first-child) {
+    background: transparent;
+    border: 2px solid #585FA2;
+    border-radius: 6rem;
+    color: #A5AACF;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 0.5s ease-in-out;
+    transition: color 0.2s ease-in-out;
+}
+
+.header .botones button:not(:first-child):hover {
+    background: #585FA2;
+    color: white;
+}
+
+.header .botones button:first-child:hover {
+    color: white;
+}
+
+/*** Search ***/
+
+.hr {
+    margin: 0 1.5rem;
+    border: solid #5e5f8f 0.5px;
+}
+
+.search {
+    padding: 1rem ;
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+    gap: 1rem;
+}
+
+.search input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    caret-color: #bdbede;
+    color: #bdbede;
+    font-size: 1.3rem;
+}
+
+.search input::placeholder {
+    color: #bdbede;
+    font-size: 1rem;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+}
+
+.search input:focus {
+    outline:none;
+}
+
+.search svg {
+    font-size: 1.4rem;
+}
+
+@media screen and (min-width: 1066px) {
+    .hr {
+        margin: 0rem 2rem;
+    }
+
+    .search {
+        padding: 1rem 2rem;
+    }
+}
+
+@media screen and (min-width: 1170px) {
+    .hr {
+        margin: 0rem 8rem;
+    }
+
+    .search {
+        padding: 1rem 7rem;
+    }
+}

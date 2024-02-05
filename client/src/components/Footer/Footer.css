@@ -1,0 +1,27 @@
+footer {
+    background:#242145;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    padding: 1rem 0rem;
+    font-family: 'Work Sans', sans-serif;
+}
+
+footer a {
+    text-decoration: none;
+    color: #A5AACF;
+    font-weight: 600;
+}
+
+footer a:hover {
+    color: #EC008C;
+}
+
+@media screen and (max-width: 1000px) {
+    footer {
+        font-size: 13px;
+    }
+}

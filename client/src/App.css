@@ -2,3 +2,8 @@
 body{
     color: #FFFFFF;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+}

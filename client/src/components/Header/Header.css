@@ -1,63 +1,313 @@
-.header-style{
-position: fixed;
-background-color: #2421459b;
+/*.header {
+    /*border: solid 2px red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem 5rem;
+    color: #A5AACF;
+    background:#242145;
+    font-family: "Work Sans", sans-serif;
 }
 
-.header-style div:nth-child(1) ul li:nth-child(1){
-    position: absolute;    
-    margin-right: 300px;
-    margin-left: 300px;
-    left: 0;
+.header .logo img {
+    width: 9rem;
 }
-.header-style div:nth-child(1) ul li img{
-    width: 20px;
-    height: 20px;
-}
-.header-style div:nth-child(1) ul{
-    display: flex;
-    flex-direction: row;
-    column-gap: 100px;
-    justify-content: right;
+
+.header .menu ul {
     list-style: none;
-    margin-right: 300px;
-    margin-left: 300px;
-    padding-top: 25px;
-    padding-bottom: 25px;
-}   
-
-.header-style div:nth-child(2){
-    border-top: 1px solid #393B6B;
-    padding-top: 25px;
-    padding-bottom: 25px;
     display: flex;
-    justify-content: center;
-    margin-right: 300px;
-    margin-left: 300px;
-    column-gap: 10px;
+    gap: 1rem;
 }
 
-.header-style div:nth-child(2) input{
-    padding: 25px 500px;
-    background-color: transparent;
-    border: none;
-    font-size: 25px;
-    color: #fff;
-    outline: none;
-    position: relative;
-    text-indent: 20px;
-    display: flex;
+@media screen and (min-width: 960px) {
+    .header {
+        /*border: solid 2px red;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        padding: 1rem 5rem;
+        color: #A5AACF;
+        font-family: "Work Sans", sans-serif;
+    }
+
+    .header .logo img {
+        width: 11rem;
+    }
     
+    .header .menu {
+        /*background: rgba(133, 118, 34,0.6);
+        width: 100%;
+    }
+    
+    .header .menu ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .header .menu ul li {
+        cursor: pointer;
+    }
+    
+    .header .menu ul li:hover {
+        color: white;
+        transition: color 0.6s ease;
+    }
+    
+    .header .botones {
+        display: flex;
+        gap: 1.3rem;
+    }
+    
+    .header .botones button:first-child {
+        border: none;
+        background: transparent;
+        color: #A5AACF;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: color 0.2s ease-in-out;
+    }
+    
+    .header .botones button:not(:first-child) {
+        background: transparent;
+        border: 2px solid #585FA2;
+        border-radius: 6rem;
+        color: #A5AACF;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: background 0.5s ease-in-out;
+        transition: color 0.2s ease-in-out;
+    }
+    
+    .header .botones button:not(:first-child):hover {
+        background: #585FA2;
+        color: white;
+    }
+    
+    .header .botones button:first-child:hover {
+        color: white;
 }
-.header-style div:nth-child(2) img{
+
+/*
+.header {
+    /*border: solid 2px red;
     display: flex;
-    margin-top: 30px;
-    width: 20px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem 5rem;
+    color: #A5AACF;
+    font-family: "Work Sans", sans-serif;
+}
+
+.header .logo img {
+    width: 11rem;
+}
+
+.header .menu {
+    /*background: rgba(133, 118, 34,0.6);
+    width: 100%;
+}
+
+.header .menu ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.header .menu ul li {
+    cursor: pointer;
+}
+
+.header .menu ul li:hover {
+    color: white;
+    transition: color 0.6s ease;
+}
+
+.header .botones {
+    display: flex;
+    gap: 1.3rem;
+}
+
+.header .botones button:first-child {
+    border: none;
+    background: transparent;
+    color: #A5AACF;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+.header .botones button:not(:first-child) {
+    background: transparent;
+    border: 2px solid #585FA2;
+    border-radius: 6rem;
+    color: #A5AACF;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 0.5s ease-in-out;
+    transition: color 0.2s ease-in-out;
+}
+
+.header .botones button:not(:first-child):hover {
+    background: #585FA2;
+    color: white;
+}
+
+.header .botones button:first-child:hover {
+    color: white;
+}*/
+/**********************************************************/
+
+/* MenuHamburguesa.css */
+/*.menu-container {
+    position: relative;
+    display: flex;
+    border: solid 2px red;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem;
+    background:#242145;
+}
+
+.menu-container img {
+    width: 9rem;
+}
+
+  .menu-hamburguesa {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
     height: 20px;
-    margin-left: 30px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
-.header-style div:nth-child(2) input::placeholder{
-    color: #fff;
-    font-size: 25px;
+
+.menu-hamburguesa .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #eee7e7;
+}
+
+.menu-items {
     position: absolute;
+    top: 60px; /* Ajusta la posición del menú desplegable según tu diseño 
     left: 0;
+    width: 100%;
+    height: fit-content;
+    background-color: #262626;
+    /*border: 1px solid #ccc;
+    /*padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
+  
+  .menu-items p {
+    margin: 0;
+    padding: 8px;
+    cursor: pointer;
+    /*border-bottom: 1px solid #ccc;
+  }
+  
+  .menu-hamburguesa.open .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  
+  .menu-hamburguesa.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-hamburguesa.open .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+  
+
+  @media screen and (min-width: 960px) {
+    .menu-container {
+        position: static;
+        border: solid 2px rgb(0, 255, 51);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        padding: 1rem 5rem;
+        color: #A5AACF;
+        font-family: "Work Sans", sans-serif;
+    }
+
+    .menu-hamburguesa {
+        display: none;
+    }
+
+    .menu-items {
+        position: static;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        background: red;
+    }
+    
+    
+    .menu-container .menu {
+        /*background: rgba(133, 118, 34,0.6);
+        width: 100%;
+    }
+    
+    .menu-container .menu ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .menu-container .menu ul li {
+        cursor: pointer;
+    }
+    
+    .menu-container .menu ul li:hover {
+        color: white;
+        transition: color 0.6s ease;
+    }
+    
+    .menu-container .botones {
+        display: flex;
+        gap: 1.3rem;
+    }
+    
+    .menu-container .botones button:first-child {
+        border: none;
+        background: transparent;
+        color: #A5AACF;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: color 0.2s ease-in-out;
+    }
+    
+    .menu-container .botones button:not(:first-child) {
+        background: transparent;
+        border: 2px solid #585FA2;
+        border-radius: 6rem;
+        color: #A5AACF;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: background 0.5s ease-in-out;
+        transition: color 0.2s ease-in-out;
+    }
+    
+    .menu-container .botones button:not(:first-child):hover {
+        background: #585FA2;
+        color: white;
+    }
+    
+    .menu-container .botones button:first-child:hover {
+        color: white;
+    }
+}
+*/

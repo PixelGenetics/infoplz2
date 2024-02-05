@@ -1,99 +1,72 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import LoadFonts from "../Config/LoadFonts";
-import './Body.css';
-import SearchComponent from "../SearchComponent/SearchComponent";
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import axios from 'axios'
+import Card from './Card'
+import './Body.css'
 
-    const Body = () => {
+const Body = () => {
     const [results, setResults] = useState([]);
-    const [inicio, setInicio] = useState([]);
-    const [fontsLoaded, setFontsLoaded] = useState(true);
-    const [search, setSearch] = useState("");
+
+    const counter = useSelector(state => state.counter)
+    const menuDispatch = useSelector(state => state.menu)
 
     const loadData = async () => {
         try {
-        const response = await axios.get('http://localhost:3000/api/publicacionreveslimited');
-        setResults(response.data.rows);
-        setInicio(response.data.rows);
+            const response = await axios.get('http://localhost:3000/api/publicacionreveslimited')
+            setResults(response.data.rows)
         } catch (error) {
-        console.error('Error al cargar los datos:', error);
+            console.error('Error al cargar los datos:', error);
         }
-    };
+    }
 
-    const authorStyle = {
-        fontFamily: fontsLoaded ? 'Quicksand, sans-serif' : 'serif',
-        fontWeight: '600',
-        fontSize: '18px',
-        marginBottom: '16px',
-    };
-    const titleStyle = {
-        fontFamily: fontsLoaded ? 'Quicksand, sans-serif' : 'serif',
-        fontWeight: '600',
-        fontSize: '20px',
-        marginBottom: '16px',
-    };
-    const contentStyle = {
-        fontFamily: fontsLoaded ? 'Lato, sans-serif' : 'serif',
-        fontWeight: '300',
-        fontSize: '18px',
-        marginBottom: '16px',
-    };
+    const filter = {
+        backgroundColor: "transparent",
+        width: '100%',
+        height: '100vh',
+    }
 
     useEffect(() => {
         loadData();
-        LoadFonts(() => {
-        setFontsLoaded(true);
-        });
-    }, []);
+    }, [])
 
-    const searcher = (event) => {
-        const searchTerm = event.target.value;
-        setSearch(searchTerm);
+    /**  Margen cuando baja el menú hamburgesa **/
+    const marginTop1 = {
+        marginTop: '310px'
+    }
 
-        // Filtra los resultados basándonos en el término de búsqueda
-        const filteredResults = inicio.filter((item) =>
-        item.content_title.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-
-        setResults(filteredResults);
-    };
+    const marginTop2 = {
+        marginTop: '0px'
+    }
 
     return (
-        <>
+        <main style={menuDispatch ? marginTop2 : marginTop1}>
+            <div style={counter ? {} : filter}></div>
+            <div className="main-line">
+                <p>Explore Technology </p>
+                <hr />
+            </div>
+            <div className="outter-div">
+                {
+                    results.map((item) => (
+                        <div key={item.content_id} className="main-div">
+                            <div className="main-image">
+                                <img src='https://i.postimg.cc/dVYmj3xj/header-blog-chatgpt-vs-bard.jpg' alt="" className="inner-main-div-imagen" />
+                            </div>
+                            <h2  className="card-author">{item.content_author}</h2>
+                            <h3 className="card-title">{item.content_title}</h3>
+                            <p className="card-text">{item.content_parrafo}</p>
+                        </div>
+                    ))
 
-        <div className="explore-techonology">
-            <div className="inner-explore-tech">
-            {/* <input value={search} onChange={searcher} type="text" /> */}
-            <h2 style={titleStyle}>Explore Technology </h2>
+                }
             </div>
-        </div>
-        {/* Componente importado: SearchComponent */}
-        {/* <SearchComponent /> */}
-        <div className="outter-div">
+            <div className="card-div">
             {results.map((item) => (
-            <div key={item.content_id} className="main-div">
-                <div className="inner-main-div">
-                <img src={item.content_image} alt="" className="inner-main-div-imagen" />
-                <h2 style={authorStyle} className="">
-                    {item.content_author}
-                </h2>
-                <h3 style={titleStyle}>{item.content_title}</h3>
-                <p style={contentStyle}>{item.content_summary}</p>
-                </div>
-            </div>
+                <Card item={item} key={item.content_id} />
             ))}
-            {results.map((item) => (
-            <div key={item.content_id} className="extra-blogs">
-                <div className="inner-extra-blogs">
-                <h2 style={authorStyle}>{item.content_author}</h2>
-                <h3 style={titleStyle}>{item.content_title}</h3>
-                <p style={contentStyle}>{item.content_summary}</p>
-                </div>
             </div>
-            ))}
-        </div>
-        </>
+        </main>
     );
     };
 
-export default Body;
+export default Body
